@@ -1,0 +1,15 @@
+M:\web prac\shopping-cart\src\main\java\entity\Cart.java
+M:\web prac\shopping-cart\src\main\java\servlet\LoginServlet.java
+M:\web prac\shopping-cart\src\main\java\entity\Product.java
+M:\web prac\shopping-cart\src\main\java\entity\User.java
+M:\web prac\shopping-cart\src\main\java\servlet\AddToCartServlet.java
+M:\web prac\shopping-cart\src\main\java\servlet\RemoveFormCartServlet.java
+M:\web prac\shopping-cart\src\main\java\dao\ProductDao.java
+M:\web prac\shopping-cart\src\main\java\connection\DbConn.java
+M:\web prac\shopping-cart\src\main\java\dao\OrderDao.java
+M:\web prac\shopping-cart\src\main\java\servlet\QuatityIncDesServlet.java
+M:\web prac\shopping-cart\src\main\java\servlet\LogoutServlet.java
+M:\web prac\shopping-cart\src\main\java\servlet\CheckOutServlet.java
+M:\web prac\shopping-cart\src\main\java\entity\Order.java
+M:\web prac\shopping-cart\src\main\java\servlet\OrderNowServet.java
+M:\web prac\shopping-cart\src\main\java\dao\UserDao.java

@@ -1,0 +1,98 @@
+		SET UP FE AND CONFIGURE
+
+b1: tạo project "shopping-cart" với Maven 
+b2: ở file index.jsp thêm css bootstrap.min.css, js : popper.min.js, bootrap.min.js,slim.min.js
+b3: tạo folder incluces 
+b4: trong folder incluces tạo 2 file head.jsp và footer.jsp 
+b5: trong file head.jsp chứa css bootstrap.min.css
+b6: trong file footer.jsp chứa popper.min.js, bootrap.min.js,slim.min.js
+b7: bỏ link css và script js ở file index.jsp
+b8: copy code từ index.jsp sang các trang jsp khác 
+b9: tạo form login trong file login.jsp
+
+		 NAVBAR DESIGN VÀ XỬ LÝ LOGIN
+
+b1: lấy code navbar từ web getbootrap đưa vào file includes/navbar.jsp và design lại 
+b2:bỏ file navbar.jsp vào các jsp khác với câu lệnh: "include"
+b3: xử lý login
+b4: tạo class User trong package entity
+b5: tạo kết nối giữa project và mysql
+b6 tạo UserDao.java trong package dao
+b7: tạo hàm userLogin(String email, String password) để getdata
+b8: tạo servlet LoginServlet có link /user-login để xử lý
+b9: trong form login.jsp them link user-login vao action
+b10: xử lý LOGOUT
+b11: tạo servlet LogoutServlet vs link : /logout để xử lý 
+b12: chỉnh sửa hiện login khi ko có session và hiện logout vs order khi có session
+b13: gọi session cho index.jsp, login.jsp, cart.jsp, order.jsp
+
+
+		XỬ LÝ HIỆN PRODUCT TRÊN INDEX.JSP
+b1: ở file index.jsp design khung show product
+b2: tạo Product.java trong entity
+b3: tạo ProductDao vs hàm getAllProduct() trong dao 
+b5: trong file index.jsp xử lý để getdata ra  
+
+
+		DESIGN CART PAGE và xử lý cart 
+b1: thêm fontawesome vào head.jsp
+
+     		AĐ PRODUCT IN THE CART
+b1: tạo Cart.java extends qua Product.java
+b2: tạo servler AddToCartServlet.java vs link: add-to-cart để xử lý
+b3: thêm link add-to-cart?id= getID qua file index.jsp
+
+		Show All Cart Products Inside Cart Page
+
+b1: tạo hàm List<Cart> getCartProducts(ArrayList<Cart> cartList) trong dao
+b2: qua trang cart.jsp để xử lý 
+
+		Calculate Total Price and Item on Cart
+
+b1: lấy cart_list từ attribute của cart.jsp 
+b2: thêm cart_list.size() vào navbar.jsp để hiện lên số lượng đã có trong giỏ hàng 
+b3: cho code session "cart-list" qua index.jsp, login.jsp, order.jsp để nó luôn hiện hữu
+b4: xử lý total price.
+  b1: tạo hàm double getTotalCartPrice(ArrayList<Cart> cartList) trong ProductDao
+  b2: get data ở trong cart.jsp vs attribute là "total"
+  b3: xuất total ra ở tag h3 Total price;
+		
+
+		 Increase and Decrease Cart Product Quantity
+
+b1: tạo servlet QuatityIncDesServlet vs link: quatity-inc-des
+b2: thêm link "quatity-inc-des?action=dec/inc&id= <%=c.getId() %> vào tag a của cart.jsp
+b3: trong serlvet QuatityIncDesServlet xử lý String url đó và get session đẻ xử lý .
+b4: tao DecimalFormat dcf = new DecimalFormat("#.##"); request.setAttribute("dcf", dcf); để format số double cho đẹp
+
+	         	 Remove Product from Cart
+b1: tạo servlet RemoveFormCartServler vs link: remove-from-cart
+b2: ở trang cart.jsp thêm remove-from-cart?id=<%=c.getId() %> ở tag a Cancel 
+b3: ở RemoveFormCartServler gọi session cart-list ra và xử lý link ở cart.jsp
+
+
+			Buy Now Function from the Shopping cart(insert 1 product)
+
+b1: tạo servlet OrderNowServler vs link: order-now
+b2: cho link order-now vào form của cart.jsp
+b3: tạo class Order extend đến product
+b4: qua servlet OrderNowServler gọi session auth và xử lý
+b4: tạo class Order
+b5: tạo boolean insertOrder(Order model) trong OrderDao
+b6:xử lý get data qua servlet OrderNowServlet
+			
+                        Check Out All Cart Products (insert multi products)
+
+b1: tạo servlet CheckOutServlet vs link /cart-checkout
+b2: đưa link cart-checkout vào cart.jsp chỗ CHeck out
+b3: get 2 session "cart_list" và "auth"
+b4: lấy hàm insert trong OrderDao để xử lý trong CheckOutServlet 
+
+			Get User Orders and Cancel Order (view and action)
+
+ VIEW
+b1: tạo hàm Product getSingleProduct(int id)
+b2: tạo hàm List<Order> userOrders(int id) chưa hàm getSingleProduct(int id) để lấy data của cả 2 
+b3: getdata qua orders.jsp
+
+			   
